@@ -1,20 +1,10 @@
 # Apache configuration file
 # httpd.apache.org/docs/2.2/mod/quickreference.html
 
-# Note .htaccess files are an overhead, this logic should be in your Apache config if possible
-# httpd.apache.org/docs/2.2/howto/htaccess.html
-
 # Techniques in here adapted from all over, including:
 #   Kroc Camen: camendesign.com/.htaccess
 #   perishablepress.com/press/2006/01/10/stupid-htaccess-tricks/
 #   Sample .htaccess file of CMS MODx: modxcms.com
-
-
-###
-### If you run a webserver other than Apache, consider:
-### github.com/h5bp/server-configs
-###
-
 
 
 # ----------------------------------------------------------------------
@@ -32,20 +22,6 @@
     Header unset X-UA-Compatible
   </FilesMatch>
 </IfModule>
-
-
-# ----------------------------------------------------------------------
-# Cross-domain AJAX requests
-# ----------------------------------------------------------------------
-
-# Serve cross-domain Ajax requests, disabled by default.
-# enable-cors.org
-# code.google.com/p/html5security/wiki/CrossOriginRequestSecurity
-
-#  <IfModule mod_headers.c>
-#    Header set Access-Control-Allow-Origin "*"
-#  </IfModule>
-
 
 # ----------------------------------------------------------------------
 # CORS-enabled images (@crossorigin)
@@ -160,7 +136,6 @@ AddType text/x-vcard                        vcf
 # ----------------------------------------------------------------------
 
 <IfModule mod_deflate.c>
-
   # Force deflate for mangled headers developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping/
   <IfModule mod_setenvif.c>
     <IfModule mod_headers.c>
@@ -192,14 +167,12 @@ AddType text/x-vcard                        vcf
     FilterProtocol  COMPRESS  DEFLATE change=yes;byteranges=no
   </IfModule>
 
-  <IfModule !mod_filter.c>
-    # Legacy versions of Apache
-    AddOutputFilterByType DEFLATE text/html text/plain text/css application/json
-    AddOutputFilterByType DEFLATE application/javascript
-    AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
-    AddOutputFilterByType DEFLATE application/xhtml+xml application/rss+xml application/atom+xml
-    AddOutputFilterByType DEFLATE image/x-icon image/svg+xml application/vnd.ms-fontobject application/x-font-ttf font/opentype
-  </IfModule>
+  # Legacy versions of Apache
+  AddOutputFilterByType DEFLATE text/html text/plain text/css application/json
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
+  AddOutputFilterByType DEFLATE application/xhtml+xml application/rss+xml application/atom+xml
+  AddOutputFilterByType DEFLATE image/x-icon image/svg+xml application/vnd.ms-fontobject application/x-font-ttf font/opentype
 
 </IfModule>
 
