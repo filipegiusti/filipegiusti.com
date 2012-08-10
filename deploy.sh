@@ -1,4 +1,4 @@
 #!/bin/sh
 
-rsync -glpPrtvz --delete . agiledhc@filipegiusti.com:~/public_html/filipegiusti.com
+rsync -glpPrtvzC --delete . agiledhc@filipegiusti.com:~/public_html/filipegiusti.com
 
