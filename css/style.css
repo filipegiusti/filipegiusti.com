@@ -124,3 +124,29 @@ td { vertical-align: top; }
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3 { page-break-after: avoid; }
 }
+
+/* Filipe Giusti Homepage */
+
+#main {
+  margin: auto;
+  width: 980px;
+}
+
+.picture {
+  float: left;
+  margin-right: 20px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+#profiles li:first-child {
+  margin-left: 0;
+}
+
+#profiles li {
+  margin-left: 20px;
+  display: inline-block;
+}
+
