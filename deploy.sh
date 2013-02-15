@@ -1,4 +1,4 @@
 #!/bin/sh
 
-rsync -glpPrtvzC --delete . agiledhc@filipegiusti.com:~/public_html/filipegiusti.com
+rsync -glpPrtvzC --exclude="sites/" --exclude=".gitignore" --exclude="deploy.sh" --exclude="README.md" --delete . filipegi@filipegiusti.com:~/public_html
 
